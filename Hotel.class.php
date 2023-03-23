@@ -12,8 +12,8 @@ class Hotel {
     public function __construct(string $nom, string $adresse, string $cP, string $ville){
         $this->_nom=$nom;
         $this->_adresse=$adresse;
-        $this->cP=$cP;
-        $this->_ville=$vile;
+        $this->_cP=$cP;
+        $this->_ville=$ville;
         $this->_listeChambre=[];
         $this->_listeResa=[];
     }
@@ -69,17 +69,6 @@ class Hotel {
         return $this;
     }
 
-    public function get_nbChambres()
-    {
-        return $this->_nbChambres;
-    }
-
-    public function set_nbChambres($_nbChambres)
-    {
-        $this->_nbChambres = $_nbChambres;
-
-        return $this;
-    }
 
     public function get_listeResa()
     {
@@ -92,6 +81,34 @@ class Hotel {
 
         return $this;
     }
+
+    public function get_listeChambre()
+    {
+        return $this->_listeChambre;
+    }
+    
+    public function set_listeChambre($_listeChambre)
+    {
+        $this->_listeChambre = $_listeChambre;
+    
+        return $this;
+    }
+
+//*****function addChambre pour ajouter la liste des chambres de l'hotel *****//
+    public function addChambre(Chambre $chambre){
+        $this->_listeChambre[]=$chambre;
+    }
+
+//*****function affichage des infos de l'hotel : nombre de chambres et réservations *****//
+    public function affichageInfosHotel(){
+        $nbchambres=count($this->_listeChambre);
+        $result="<h3>".$this->get_nom()." ".$this->get_ville(). "</h3>";
+        $result.=$this->get_adresse()." ".$this->get_cP()." ".$this->get_ville()."<br>";
+        $result.="nombre de chambres : ". $nbchambres. "<br>";
+        echo $result;
+    }
+
+
 
 }
 

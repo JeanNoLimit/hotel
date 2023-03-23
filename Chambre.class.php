@@ -15,6 +15,7 @@ class Chambre {
         $this->_prix=$prix;
         $this->_wifi=$wifi;
         $this->_hotel=$hotel;
+        $this->_hotel->addChambre($this);
         $this->_listeResa=[];
     }
 
