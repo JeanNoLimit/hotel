@@ -98,17 +98,30 @@ class Hotel {
     public function addChambre(Chambre $chambre){
         $this->_listeChambre[]=$chambre;
     }
+//*****function addResa pour ajouter la liste des réservations de l'hotel ******/
+    public function addResa(Reservation $reservation){
+        $this->_listeResa[]=$reservation;
+    }
 
 //*****function affichage des infos de l'hotel : nombre de chambres et réservations *****//
     public function affichageInfosHotel(){
         $nbchambres=count($this->_listeChambre);
-        $result="<h3>".$this->get_nom()." ".$this->get_ville(). "</h3>";
+        $result="<h3> Hotel".$this->get_nom()." ".$this->get_ville(). "</h3>";
         $result.=$this->get_adresse()." ".$this->get_cP()." ".$this->get_ville()."<br>";
-        $result.="nombre de chambres : ". $nbchambres. "<br>";
+        $result.="Nombre de chambres : ". $nbchambres. "<br>";
         echo $result;
     }
+// ***** function affichageReservation pour afficher la liste complète des réservations de l'hotel *****//
+    public function affichageReservation(){
+        $nbReservations=count($this->_listeResa);
+        $result="<h3>Réservations de l'Hotel ".$this->get_nom()." ".$this->get_ville(). "</h3>";
+        foreach ($this->_listeResa as $reservation){
+            $result.=$reservation->get_prenom();
+        }
+        echo $result;
 
 
+    }
 
 }
 

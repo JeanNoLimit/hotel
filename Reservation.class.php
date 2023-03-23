@@ -10,6 +10,7 @@ class Reservation {
 
     public function __construct(Hotel $hotel, Chambre $chambre, Client $client, string $dateEntree, string $dateSortie){
         $this->_hotel=$hotel;
+        $this->_hotel->addResa($this);
         $this->_chambre=$chambre;
         $this->_client=$client;
         $this->_dateEntree=$dateEntree;
@@ -75,6 +76,11 @@ class Reservation {
 
         return $this;
     }
+// 
+
+
+
+
 }
 
 

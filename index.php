@@ -7,8 +7,8 @@ spl_autoload_register( function ($classe){
 });
 //******hotels******//
 
-$h1=new Hotel("Hotel Ibis","Avenue du Rhin", 67100,"Strasbourg");
-$h2=new Hotel("Hôtel & Spa Régent petite France", "6 rue des Moulins", 67000, "Strasbourg");
+$h1=new Hotel("Ibis","Avenue du Rhin", 67100,"Strasbourg");
+$h2=new Hotel("& Spa Régent petite France", "6 rue des Moulins", 67000, "Strasbourg");
 
 
 
@@ -39,11 +39,16 @@ $c7_2=new Chambre(202,2,480,true,$h2);
 $client1=new client("Narcisse", "Pelletier");
 $client2=new client("Melusine","Mallender");
 
+//*****Reservations*****/
+
+$Resa1=new Reservation($h1,$c2_1,$client1,"28/03/2023","28/03/2023");
+$Resa1=new Reservation($h1,$c4_1,$client2,"01/04/2023","05/04/2023");
 
 //**** tests affichages *****/
 
 $h1->affichageInfosHotel();
 $h2->affichageInfosHotel();
+$h1->affichageReservation();
 
 
 
