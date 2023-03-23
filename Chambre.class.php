@@ -5,13 +5,15 @@ class Chambre {
     private int $_num; //numéro de chambre
     private int $_nblits;
     private float $_prix;
+    private bool $_wifi;
     private Hotel $_hotel;
     private array $_listeResa;
 
-    public function __construct(int $num,int $nblits, float $prix,Hotel $hotel){
+    public function __construct(int $num,int $nblits, float $prix,bool $wifi,Hotel $hotel){
         $this->_num=$num;
         $this->_nblits=$nblits;
         $this->_prix=$prix;
+        $this->_wifi=$wifi;
         $this->_hotel=$hotel;
         $this->_listeResa=[];
     }
@@ -74,6 +76,18 @@ class Chambre {
     public function set_listeResa($_listeResa)
     {
         $this->_listeResa = $_listeResa;
+
+        return $this;
+    }
+
+    public function get_wifi()
+    {
+        return $this->_wifi;
+    }
+
+    public function set_wifi($_wifi)
+    {
+        $this->_wifi = $_wifi;
 
         return $this;
     }
