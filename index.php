@@ -64,6 +64,7 @@ $Resa1=new Reservation($c4_1,$client2,"01/04/2023","05/04/2023");
 $h1->affichageInfosHotel();
 $h2->affichageInfosHotel();
 $h1->affichageReservation();
+$h2->affichageReservation();
 $client1->affichageResaClient();
 $client2->affichageResaClient();
 

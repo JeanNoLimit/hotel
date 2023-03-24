@@ -103,20 +103,37 @@ class Hotel {
         $this->_listeResa[]=$reservation;
     }
 
-//*****function affichage des infos de l'hotel : nombre de chambres et réservations *****//
+//*****function affichage des infos de l'hotel : nombre de chambres et nombres de réservations *****//
     public function affichageInfosHotel(){
-        $nbchambres=count($this->_listeChambre);
-        $result="<h3> Hotel".$this->get_nom()." ".$this->get_ville(). "</h3>";
+        $nbChambres=count($this->_listeChambre);
+        $nbReservations=count($this->_listeResa);
+        $nbChambresDispo=$nbChambres-$nbReservations;
+        $result="<h3> Hotel ".$this->get_nom()." ".$this->get_ville(). "</h3>";
         $result.=$this->get_adresse()." ".$this->get_cP()." ".$this->get_ville()."<br>";
-        $result.="Nombre de chambres : ". $nbchambres. "<br>";
+        $result.="Nombre de chambres : ". $nbChambres. "<br>";
+        $result.="Nombre de chambres réservées : ". $nbReservations. "<br>";
+        $result.="Nombre de chambres disponibles : ".$nbChambresDispo. "<br>";
+        
         echo $result;
     }
 // ***** function affichageReservation pour afficher la liste complète des réservations de l'hotel *****//
     public function affichageReservation(){
         $nbReservations=count($this->_listeResa);
         $result="<h3>Réservations de l'Hotel ".$this->get_nom()." ".$this->get_ville(). "</h3>";
-        foreach ($this->_listeResa as $reservation){
-            $result.=$reservation->get_prenom();
+        if ($nbReservations==0){
+            $result.="Aucune réservation!";
+        }
+        else {
+            $result.=  $nbReservations ." Réservations<br>";
+            foreach ($this->_listeResa as $reservation){
+                
+                $result.=$reservation->get_client()->get_prenom().
+                " ".$reservation->get_client()->get_nom().
+                " Chambre ".$reservation->get_chambre()->get_num().
+                " - du ". $reservation->get_dateEntree().
+                " au ".$reservation->get_dateSortie(). "<br>";
+                
+            }
         }
         echo $result;
 

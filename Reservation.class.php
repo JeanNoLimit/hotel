@@ -7,7 +7,7 @@ class Reservation {
     private Client $_client;
     private string $_dateEntree;
     private string $_dateSortie;
-
+// On a supprimé l'objet Hotel de réservation, car l'information chambre est suffisante étant donné qu'elle est liée à  un hotel .
     public function __construct(Chambre $chambre, Client $client, string $dateEntree, string $dateSortie){
         $this->_hotel=$chambre->get_hotel();
         $this->_hotel->addResa($this);
