@@ -56,10 +56,11 @@ $client2=new client("Melusine","Mallender");
 
 //*****Reservations*****/
 
-$Resa1=new Reservation($c2_1,$client1,"28/03/2023","28/03/2023");
-$Resa1=new Reservation($c4_1,$client2,"01/04/2023","05/04/2023");
+$Resa1=new Reservation($c2_1,$client1,'2023-03-28','2023-03-28');
+$Resa2=new Reservation($c8_1,$client1,'2023-04-05','2023-04-06');
+$Resa3=new Reservation($c4_1,$client2,'2023-04-01','2023-04-05');
 
-//**** tests affichages *****/
+// **** tests affichages *****/
 
 $h1->affichageInfosHotel();
 $h2->affichageInfosHotel();
@@ -67,7 +68,7 @@ $h1->affichageReservation();
 $h2->affichageReservation();
 $client1->affichageResaClient();
 $client2->affichageResaClient();
-
+$client1->getSomme();
 
 
 

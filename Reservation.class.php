@@ -5,8 +5,8 @@ class Reservation {
     private Hotel $_hotel;
     private Chambre $_chambre;
     private Client $_client;
-    private string $_dateEntree;
-    private string $_dateSortie;
+    private DateTime $_dateEntree;
+    private DateTime $_dateSortie;
 // On a supprimé l'objet Hotel de réservation, car l'information chambre est suffisante étant donné qu'elle est liée à  un hotel .
     public function __construct(Chambre $chambre, Client $client, string $dateEntree, string $dateSortie){
         $this->_hotel=$chambre->get_hotel();
@@ -14,8 +14,8 @@ class Reservation {
         $this->_chambre=$chambre;
         $this->_client=$client;
         $this->_client->addResaClient($this);
-        $this->_dateEntree=$dateEntree;
-        $this->_dateSortie=$dateSortie;
+        $this->_dateEntree=new DateTime ($dateEntree);
+        $this->_dateSortie=new DateTime ($dateSortie);
     }
 
     public function get_hotel()
@@ -78,8 +78,6 @@ class Reservation {
         return $this;
     }
 // 
-
-
 
 
 }

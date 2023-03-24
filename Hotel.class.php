@@ -131,8 +131,8 @@ class Hotel {
                 $result.=$reservation->get_client()->get_prenom().
                 " ".$reservation->get_client()->get_nom().
                 " Chambre ".$reservation->get_chambre()->get_num().
-                " - du ". $reservation->get_dateEntree().
-                " au ".$reservation->get_dateSortie(). "<br>";
+                " - du ". $reservation->get_dateEntree()->format('d/m/Y').
+                " au ".$reservation->get_dateSortie()->format('d/m/Y'). "<br>";
                 
             }
         }
