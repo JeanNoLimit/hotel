@@ -119,12 +119,13 @@ class Hotel {
 // ***** function affichageReservation pour afficher la liste complète des réservations de l'hotel *****//
     public function affichageReservation(){
         $nbReservations=count($this->_listeResa);
+        $AffichageNbResa=($nbReservations>1) ? "Réservations" : "Réservation";
         $result="<h3>Réservations de l'Hotel ".$this->get_nom()." ".$this->get_ville(). "</h3>";
         if ($nbReservations==0){
             $result.="Aucune réservation!";
         }
         else {
-            $result.=  $nbReservations ." Réservations<br>";
+            $result.=  $nbReservations ." ".$AffichageNbResa."<br>";
             foreach ($this->_listeResa as $reservation){
                 
                 $result.=$reservation->get_client()->get_prenom().
