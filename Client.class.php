@@ -61,9 +61,10 @@ class Client {
             $dateDeb= $reservation->get_dateEntree();
             $dateFin= $reservation->get_dateSortie();
             $nbJours = date_diff($dateFin, $dateDeb);
-            $dateDeb->diff($dateFin);
+            $nbJours=$dateDeb->diff($dateFin);
             $nbJours = (int)$nbJours->format('%d')+1;
             $somme+= $nbJours* $reservation->get_chambre()->get_prix();
+           // var_dump($prixParResa);
         }
         return $somme;
     }

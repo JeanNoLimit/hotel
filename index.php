@@ -69,7 +69,8 @@ $h2->affichageReservation();
 $client1->affichageResaClient();
 $client2->affichageResaClient();
 $client1->getSomme();
-
+$h1->affichageStatutChambre();
+$h2->affichageStatutChambre();
 
 
 

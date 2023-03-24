@@ -137,11 +137,22 @@ class Hotel {
             }
         }
         echo $result;
-
-
     }
+//*****Affichage statut des chambres ******/   
+    public function affichageStatutChambre(){
+        $result="<h4> Statuts des chambres de l'Hotel ". $this->get_nom()." ". $this->get_ville()."</h4>";
+        $result.="<table> <tr><th>chambre</th><th>prix</th><th>wifi</th><th>etat</th></tr>"; 
+        foreach( $this->_listeChambre as $chambre) {
+            $wifi = ($chambre->get_wifi()) ? "📶" : " ";
+            $result.="<tr><td>Chambre ".$chambre->get_num()."</td><td>".$chambre->get_prix()." €</td><td>$wifi</td><td>".$chambre->getStatutChambre()."</td></tr>";
 
+        }
+        $result.="</table>";
+        echo $result;  
+    }
 }
+
+
 
 
 

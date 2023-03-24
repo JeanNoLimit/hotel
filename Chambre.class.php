@@ -8,6 +8,7 @@ class Chambre {
     private bool $_wifi;
     private Hotel $_hotel;
     private array $_listeResa;
+    private bool $_statut;
 
     public function __construct(int $num,int $nblits, float $prix,bool $wifi,Hotel $hotel){
         $this->_num=$num;
@@ -17,6 +18,7 @@ class Chambre {
         $this->_hotel=$hotel;
         $this->_hotel->addChambre($this);
         $this->_listeResa=[];
+        $this->_statut=false;
     }
 
 // ***********************Getter et setter************************//
@@ -81,6 +83,18 @@ class Chambre {
         return $this;
     }
 
+    public function get_statut()
+    {
+        return $this->_statut;
+    }
+
+    public function set_statut($_statut)
+    {
+        $this->_statut = $_statut;
+
+        return $this;
+    }
+
     public function get_wifi()
     {
         return $this->_wifi;
@@ -91,7 +105,24 @@ class Chambre {
         $this->_wifi = $_wifi;
 
         return $this;
+     }
+//*****function addResa pour ajouter la liste des réservations de l'hotel ******/
+    public function addResaCbre(Reservation $reservation){
+    $this->_listeResa[]=$reservation;
+    }   
+///!\fonction a refaire!!!!!!!/!\
+/***function getStatut récupère le statut de la chambre "Disponible" "réservé" *****/
+    public function getStatutChambre(){
+        $result="Disponible";
+        foreach ($this->_listeResa as $reservation){
+            if ($reservation->get_chambre()->get_num()==$this->get_num()){
+                $result="Réservé";
+            }
+            
+        }
+        return $result;
     }
+
 }
 
 
