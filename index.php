@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
 <?php
 
 //fonction de récupération des classes
@@ -41,14 +56,16 @@ $client2=new client("Melusine","Mallender");
 
 //*****Reservations*****/
 
-$Resa1=new Reservation($h1,$c2_1,$client1,"28/03/2023","28/03/2023");
-$Resa1=new Reservation($h1,$c4_1,$client2,"01/04/2023","05/04/2023");
+$Resa1=new Reservation($c2_1,$client1,"28/03/2023","28/03/2023");
+$Resa1=new Reservation($c4_1,$client2,"01/04/2023","05/04/2023");
 
 //**** tests affichages *****/
 
 $h1->affichageInfosHotel();
 $h2->affichageInfosHotel();
 $h1->affichageReservation();
+$client1->affichageResaClient();
+$client2->affichageResaClient();
 
 
 

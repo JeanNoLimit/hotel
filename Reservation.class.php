@@ -8,11 +8,12 @@ class Reservation {
     private string $_dateEntree;
     private string $_dateSortie;
 
-    public function __construct(Hotel $hotel, Chambre $chambre, Client $client, string $dateEntree, string $dateSortie){
-        $this->_hotel=$hotel;
+    public function __construct(Chambre $chambre, Client $client, string $dateEntree, string $dateSortie){
+        $this->_hotel=$chambre->get_hotel();
         $this->_hotel->addResa($this);
         $this->_chambre=$chambre;
         $this->_client=$client;
+        $this->_client->addResaClient($this);
         $this->_dateEntree=$dateEntree;
         $this->_dateSortie=$dateSortie;
     }
