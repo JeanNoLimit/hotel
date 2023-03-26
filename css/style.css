@@ -1,0 +1,83 @@
+*{
+
+    box-sizing : border-box;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+h3 {
+    margin-bottom : 10px;
+    font-weight: 500;
+    font-size: 1.5em;
+
+}
+
+p{
+    color:rgb(77, 77, 77);
+    line-height:120%;
+    margin-bottom: 30px;
+    margin-top:5px;
+}
+
+.resa {
+    background-color:#44b152;
+    color: white;
+    padding: 5px;
+    width: 150px;    
+    border-radius: 5px;
+    text-align: center;
+    text-transform:uppercase;
+
+}
+.resaClient {
+    background-color:#44b152;
+    color: white;
+    font-size: 0.8em;
+    padding: 5px;
+    width: 130px;    
+    border-radius: 5px;
+    text-align: center;
+    text-transform:uppercase;
+
+}
+/* mise en page du tableau */
+table{
+    width: 700px;   
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th{
+    text-align: left;
+    border-bottom: 1px solid rgb(185, 185, 185);
+    color: rgb(77, 77, 77);
+    font-weight: 500;
+    padding:15px;
+    text-transform:uppercase;
+
+}
+
+
+td{
+   border-bottom: 1px solid rgb(185, 185, 185) ; 
+   padding: 15px;
+}
+table tr:nth-child(even){
+    background-color:rgb(243, 243, 243);
+}
+.reserve{
+    background-color:#eb3333;
+    color: white;
+    padding: 5px;
+    width: 130px;    
+    border-radius: 5px;
+    text-align: center;
+}
+.disponible{
+    background-color:#44b152;
+    color: white;
+    padding: 5px;
+    width: 130px;    
+    border-radius: 5px;
+    text-align: center;
+}

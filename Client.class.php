@@ -73,8 +73,8 @@ class Client {
     public function affichageResaClient(){
         $nbReservations=count($this->_listeResa);
         $AffichageNbResa=($nbReservations>1) ? "Réservations" : "Réservation";
-        $result="<h3>Réservations de ". $this->get_prenom()." ".$this->get_nom()."</h3>";
-        $result.= $nbReservations." ".$AffichageNbResa ."<br>";
+        $result="<h3> $AffichageNbResa de ". $this->get_prenom()." ".$this->get_nom()."</h3>";
+        $result.="<div class='resaClient'>". $nbReservations." ".$AffichageNbResa ."</div><p>";
         foreach ($this->_listeResa as $reservation){
             //Utilisation de l'opérateur ternaire. Permet d'écrire sur une seule ligne une condition if/else
             //Ici par exemple -> Si le wifi est présent dans une chambre ? renvoyer "oui" : sinon renvoyer "non"
@@ -85,7 +85,7 @@ class Client {
             $reservation->get_chambre()->get_prix()." € - Wifi : ".$wifi.") du ".
             $reservation->get_dateEntree()->format('d/m/Y'). " au ". $reservation->get_dateSortie()->format('d/m/Y')."<br>";           
         }
-        $result.="Total : ". $this->getSomme(). " € <br>";
+        $result.="Total : ". $this->getSomme(). " € </p>";
        //📶 On peut récupérer le code utf-8 de l'émoji wifi pour l'affichage ou utiliser front awesome (https://fontawesome.com/)
         echo $result;
 

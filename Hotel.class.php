@@ -109,10 +109,10 @@ class Hotel {
         $nbReservations=count($this->_listeResa);
         $nbChambresDispo=$nbChambres-$nbReservations;
         $result="<h3> Hotel ".$this->get_nom()." ".$this->get_ville(). "</h3>";
-        $result.=$this->get_adresse()." ".$this->get_cP()." ".$this->get_ville()."<br>";
+        $result.="<p>".$this->get_adresse()." ".$this->get_cP()." ".$this->get_ville()."<br>";
         $result.="Nombre de chambres : ". $nbChambres. "<br>";
         $result.="Nombre de chambres réservées : ". $nbReservations. "<br>";
-        $result.="Nombre de chambres disponibles : ".$nbChambresDispo. "<br>";
+        $result.="Nombre de chambres disponibles : ".$nbChambresDispo. "<br></p>";
         
         echo $result;
     }
@@ -122,19 +122,20 @@ class Hotel {
         $AffichageNbResa=($nbReservations>1) ? "Réservations" : "Réservation";
         $result="<h3>Réservations de l'Hotel ".$this->get_nom()." ".$this->get_ville(). "</h3>";
         if ($nbReservations==0){
-            $result.="Aucune réservation!";
+            $result.="<p>Aucune réservation!</p>";
         }
         else {
-            $result.=  $nbReservations ." ".$AffichageNbResa."<br>";
+            $result.=  "<div class='resa'>".$nbReservations ." ".$AffichageNbResa."</div><p>";
             foreach ($this->_listeResa as $reservation){
                 
                 $result.=$reservation->get_client()->get_prenom().
                 " ".$reservation->get_client()->get_nom().
                 " Chambre ".$reservation->get_chambre()->get_num().
                 " - du ". $reservation->get_dateEntree()->format('d/m/Y').
-                " au ".$reservation->get_dateSortie()->format('d/m/Y'). "<br>";
+                " au ".$reservation->get_dateSortie()->format('d/m/Y')."<br>";
                 
             }
+            $result.="</p>";
         }
         echo $result;
     }
@@ -145,7 +146,7 @@ class Hotel {
         $result.="<table> <tr><th>chambre</th><th>prix</th><th>wifi</th><th>etat</th></tr>"; 
         foreach( $this->_listeChambre as $chambre) {
             $wifi = ($chambre->get_wifi()) ? "📶" : " ";
-            $statut=($chambre->getStatutChambre())? "Réservé" : "Disponible";
+            $statut=($chambre->getStatutChambre())? "<div class='reserve'>Réservé</div>" : "<div class='disponible'>Disponible</div>";
             $result.="<tr><td>Chambre ".$chambre->get_num()."</td><td>".$chambre->get_prix()." €</td><td>$wifi</td><td>".$statut."</td></tr>";
 
         }
