@@ -110,17 +110,20 @@ class Chambre {
     public function addResaCbre(Reservation $reservation){
     $this->_listeResa[]=$reservation;
     }   
-///!\fonction a refaire!!!!!!!/!\
+
 /***function getStatut récupère le statut de la chambre "Disponible" "réservé" *****/
     public function getStatutChambre(){
-        $result="Disponible";
+        $result="";
         foreach ($this->_listeResa as $reservation){
             if ($reservation->get_chambre()->get_num()==$this->get_num()){
-                $result="Réservé";
+                $result=$this->set_statut(true);
             }
-            
+            else{
+                $result=$this->set_statut(false);
+            }    
         }
         return $result;
+    
     }
 
 }
